@@ -1,6 +1,6 @@
 // console.log("Helloo");
 
-// File System .. (FS)      --------------- sync
+// File System .. (FS) - Pre-Define      --------------- sync
 const { log } = require("console");
 let fs=require("fs");
 // console.log(fs);    // Methods hote he.

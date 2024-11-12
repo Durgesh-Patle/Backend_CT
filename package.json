@@ -10,5 +10,8 @@
     "\"Durgesh"
   ],
   "author": "Durgesh Patle",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "give-me-a-joke": "^0.5.1"
+  }
 }
