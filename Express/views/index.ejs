@@ -9,13 +9,12 @@
 
 <body>
     <h1>Template EJS</h1>
-    <ul>
-        <% for (let i=0; i < arr.length; i++) { %>
-            <% sum+=arr[i] %>
-        <% } %>
-    </ul>
-
-    <h1>Sum: <%=sum  %></h1>
+    <h2><%= Array Elements %></h2>
+    <% for(let i of arr) {%>
+        <i>
+            <%= i %>
+        </i>
+    <% } %>
 
 </body>
 
