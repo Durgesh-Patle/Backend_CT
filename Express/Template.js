@@ -23,15 +23,26 @@ app.get('/',(req,res)=>{
     res.render("GetVSPost.ejs");
 })
 
+// CSS k liye Middile Ware or Rote to Understand the Server
+app.use(express.static('public'))
+
+
+// Middile ware used For Post request
+app.use(express.urlencoded({ extended: true }));
+
 
 // http://localhost:8080/user?name=bdwg&pass=8272 (this Problem).
+// URL Ka Data get krNA HO TO ( req.query) ka use Krte he 
 app.get('/user',(req,res)=>{
-    res.send("Get Request Done");
+    let{name,pass} = req.query
+    res.send(`Get Request Done Name: ${name} and Password: ${pass}`);
 })
 
 //  http://localhost:8080/user (This Solution)
+// URL Ka Data get krNA HO TO ( req.body) ka use Krte he 
 app.post('/user',(req,res)=>{
-    res.send("Post Request Done");
+    let{name,pass} = req.body
+    res.send(`Post Request Done Name: ${name} and Password: ${pass}`);
 })
 
 app.listen(8080, () => {
