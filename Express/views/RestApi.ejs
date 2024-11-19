@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <h2>REST API Data</h2>
+    <div class="container">
+        <% for(let i of products) { %>
+            <div id="card">
+                <h1>0<%= i.id %></h1>
+                <h3><%= i.title %></h3> 
+                <p><%= i.category %></p>
+                 <a href='http://localhost:8000/new<%= i.id %>'>view more</a>
+            </div>
+        <% } %>
+    </div>
+</body>
+
+</html>

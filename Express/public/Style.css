@@ -1,0 +1,38 @@
+/* General body styles */
+body {
+    font-family: Gilroy;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+#card {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+}
+
+#card h1 {
+    font-size: 24px;
+    color: #4caf50;
+}
+
+#card h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+#card p {
+    font-size: 16px;
+    color: #666;
+}
