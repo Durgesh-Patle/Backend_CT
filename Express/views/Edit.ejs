@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Update Data</h1>
+    <fieldset>
+        <legend>UPDATE DATA</legend>
+        <form action="/new/update<%= editData.id %>" method="POST">
+            <input type="text" value="<%= editData.title %>" name="title"> <br> <br>
+            <input type="text" value="<%= editData.category %>" name="category"> <br> <br>
+            <input type="text" value="<%= editData.description %>" name="description"> <br> <br>
+            <button type="submit">Update</button>
+        </form>
+    </fieldset>
+</body>
+
+</html>
