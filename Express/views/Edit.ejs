@@ -11,7 +11,7 @@
     <h1>Update Data</h1>
     <fieldset>
         <legend>UPDATE DATA</legend>
-        <form action="/new/update<%= editData.id %>" method="POST">
+        <form action="/new/update<%= editData.id %>?_method=PATCH" method="POST">
             <input type="text" value="<%= editData.title %>" name="title"> <br> <br>
             <input type="text" value="<%= editData.category %>" name="category"> <br> <br>
             <input type="text" value="<%= editData.description %>" name="description"> <br> <br>

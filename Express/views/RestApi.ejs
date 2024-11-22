@@ -14,7 +14,7 @@
     <button><a href="/new/return">Return Data</a></button>
 
     
-    <div class="container">
+    <div class="container"> 
         <% for(let i of products) { %>
             <div id="card">
                 <h1>0<%= i.id %>
@@ -27,7 +27,10 @@
                 </p>
                 <button><a href='http://localhost:8000/new<%= i.id %>'>view more</a></button>
                 <button><a href="/new/edit<%=i.id %>">Edit Product</a></button>
-                <button><a href="/new/remove<%=i.id %>">Remove</a></button>
+                <!-- Remove  -->
+                <form action="/new/remove<%=i.id %>?_method=DELETE" method="POST">
+                    <button>Remove</button>
+                </form>
             </div>
             <% } %>
     </div>

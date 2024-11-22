@@ -5,6 +5,12 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
+// Update the data used Patch method.
+let methodOverride = require('method-override')
+app.use(methodOverride('_method'));
+
+
+
 let products = [
     {
         "id": 0,
@@ -83,8 +89,8 @@ app.get('/new/edit:id', (req, res) => {
     res.render("Edit", { editData });
 })
 
-
-app.post('/new/update:id', (req, res) => {
+// Edit Data 
+app.patch('/new/update:id', (req, res) => {
     let { title, category, description } = req.body;
     // console.log({ title, category, description });
     let { id } = req.params;
@@ -97,8 +103,8 @@ app.post('/new/update:id', (req, res) => {
     res.redirect("/new");
 })
 
-// Edit Data 
-app.get('/new/remove:id',(req,res)=>{
+// Remove Data 
+app.delete('/new/remove:id',(req,res)=>{
    let {id}= req.params;
   let newProducts= products.filter((a)=>{
     return a.id!=id;
