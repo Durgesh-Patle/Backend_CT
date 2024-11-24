@@ -3,17 +3,30 @@ let express = require('express');
 const User = require('./model/User');
 let app = express();
 
-
+// Middile Ware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+
+// set the ejs Path...
+app.set('view engine' , 'ejs');
+
+// Connect DB
 mongoose.connect('mongodb://127.0.0.1:27017/databasename').then(() => {
     console.log('MongoDB Connected');
 }).catch((err) => {
     console.log(err);
 })
 
+// Home Page
 app.get('/', (req, res) => {
-    res.send("Home Page");
+    res.render("index");
+})
+
+
+// Register Page Create..
+app.get('/create',(req,res)=>{
+    res.render('Create')
 })
 
 app.post("/create",async (req, res) => {
@@ -31,8 +44,14 @@ app.post("/create",async (req, res) => {
             passWord:user.passWord,
         })
        await dbUser.save();
-       res.send("Created Account");
+       res.send("Apka Account Successfully Create Ho gya");
     }
+})
+
+
+// Login Page
+app.get('/login',(req,res)=>{
+    res.render('Login')
 })
 
 app.post('/login',async (req,res)=>{
@@ -51,10 +70,6 @@ app.post('/login',async (req,res)=>{
     }
 })
 
-// app.post('/update',async(req,res)=>{
-//     let upData = req.body
 
-//     let data= await User.updateOne({email:upData.email});
-// })
-
+// Server Readyyyy
 app.listen(8000, console.log("Server On Port 8000"));
