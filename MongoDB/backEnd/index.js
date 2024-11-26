@@ -1,9 +1,12 @@
 let mongoose = require('mongoose');
 let express = require('express');
 const User = require('./model/User');
+let jwt=require('jsonwebtoken');
 let app = express();
 
-// Middile Ware
+let cors=require('cors');
+app.use(cors());
+// Middile Ware......
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -25,9 +28,9 @@ app.get('/', (req, res) => {
 
 
 // Register Page Create..
-app.get('/create',(req,res)=>{
-    res.render('Create')
-})
+// app.get('/create',(req,res)=>{
+//     res.render('Create')
+// })
 
 app.post("/create",async (req, res) => {
     let user = req.body;
@@ -50,9 +53,9 @@ app.post("/create",async (req, res) => {
 
 
 // Login Page
-app.get('/login',(req,res)=>{
-    res.render('Login')
-})
+// app.get('/login',(req,res)=>{
+//     res.render('Login')
+// })
 
 app.post('/login',async (req,res)=>{
     let loginData=req.body;
@@ -61,6 +64,10 @@ app.post('/login',async (req,res)=>{
     if(data){
         let validPass=await loginData.passWord==data.passWord;
         if(validPass){
+
+            // Jsonwebtoken Used.
+           let token= jwt.sign(data.email,'wduohuodihidhind');
+            console.log(token, "Token Generate");
             res.send("Loginnnnnnnnnnnn....")
         }else{
             res.send("Invalid Pass");
