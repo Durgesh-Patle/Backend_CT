@@ -4,6 +4,7 @@ import Login from './Components/Navbar/Login'
 import Sign from './Components/Navbar/Sign'
 import Navbar from './Components/Navbar'
 import Home from './Components/Home/Home'
+import Admin from './Components/Navbar/Admin'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path="/register" element={<Sign/>} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   )

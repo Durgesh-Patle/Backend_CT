@@ -21,8 +21,9 @@ const Sign = () => {
     async function submithandler(e) {
         e.preventDefault();
         let res = await axios.post('http://localhost:8000/create', input);
-        // console.log('Response:', res.data);
+        console.log('Response:', res.name.status);
 
+        // if(res.status)
         navigate('/login');
     }
 

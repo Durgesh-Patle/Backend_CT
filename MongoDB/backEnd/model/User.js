@@ -16,6 +16,11 @@ let userSchema=mongoose.Schema({
     passWord: {
         type: String,
         required:true
+    },
+    role:{
+        type:String,
+        enum:['admin','user'],
+        default:'user'
     }
 })
 

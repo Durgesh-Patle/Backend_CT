@@ -19,10 +19,15 @@ const Login = () => {
 
     async function submithandler(e) {
         e.preventDefault();
+        
         const res = await axios.post('http://localhost:8000/login', input);
-        // console.log('Response:', res.data);
-
-       navigate('/');
+        if(res.data.token){
+            navigate('/admin')
+        }else{
+            alert(res.data)
+        }
+        // console.log(res.data);
+        localStorage.setItem('token',res.data.token); 
     }
 
     return (
